@@ -2,7 +2,7 @@
 
 module testBench();
 
-reg front, back;
+reg front, back, reset;
 wire eFlag, fFlag;
 wire[2:0] perCount;
 initial begin
@@ -17,10 +17,12 @@ always begin
     end
     else begin
         #500
-        front = ~front;
+        reset = 1;
+        #10
+        reset = 0;
     end
 end
 
-SBqM testSBqM(/*a*/back, /*b*/front, /*reset*/0, /*tCount*/1, /*pCount*/perCount, /*emptyFlag*/eFlag, /*fullFlag*/fFlag);
+SBqM testSBqM(/*a*/back, /*b*/front, /*reset*/reset, /*tCount*/2'b11, /*pCount*/perCount, /*emptyFlag*/eFlag, /*fullFlag*/fFlag);
 
 endmodule
