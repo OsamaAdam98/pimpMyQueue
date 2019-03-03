@@ -1,3 +1,4 @@
+/*Constants for the lut.*/
 `define wTime10 5'd00
 `define wTime11 5'd03
 `define wTime12 5'd06

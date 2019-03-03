@@ -39,8 +39,13 @@ initial begin
 end
 
 always@(negedge clk) begin
-
-    index = {(tCount - 1), pCount}; //unapologetically stolen
+    //first two bits are the tCount-1
+    //last three bits are the pCount
+    //put together, for example, if the tCount = 1
+    //and the pCount = 3
+    //then index = 00 011 = 3
+    //this line may or may not had been stolen :)
+    index = {(tCount - 1), pCount};
     wTime = rom[index];
 
 end
