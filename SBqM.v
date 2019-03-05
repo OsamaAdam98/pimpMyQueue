@@ -2,8 +2,8 @@
 `include "lut.v"
 
 module SBqM(
-    input a, //back sensor.
-    input b, //front sensor.
+    input reg backSensor, //back sensor.
+    input reg frontSensor, //front sensor.
     input reset,
     input reg[1:0] tCount,
     output reg[2:0] pCount,
@@ -12,7 +12,7 @@ module SBqM(
 
 wire clk;
 reg emptyOverFlow, fullOverFlow; //impossible flags.
-reg inputA, inputB; //registers for the inputs.
+reg backSensorReg, frontSensorReg; //registers for the inputs.
 wire[4:0] wTime;
 
 clock pulse(clk);
@@ -30,8 +30,8 @@ end
 
 always@(posedge clk) begin
     //loading the inputs into the registers before calculations.
-    inputA <= a;
-    inputB <= b;
+    backSensorReg <= backSensor;
+    frontSensorReg <= frontSensor;
 
 end
 
@@ -40,12 +40,12 @@ always@(negedge clk) begin
     if(pCount == 0) begin
         //setting the empty flag, useful especially when the reset button is hit.
         emptyFlag <= 1;
-        $display("The queue is empty.");
+        //$display("The queue is empty.");
     end
     if(pCount == 7) begin
         //setting the full flag when the queue is full.
         fullFlag <= 1;
-        $display("The queue is full.");
+        //$display("The queue is full.");
     end
 
 
@@ -57,7 +57,7 @@ always@(negedge clk) begin
 
 end
 
-always@(negedge inputA) begin
+always@(negedge backSensorReg) begin
     //incrementing pCount when the back sensor is triggered.
     if(pCount < 7) begin
         pCount = pCount + 1;
@@ -65,7 +65,7 @@ always@(negedge inputA) begin
     else if(pCount > 7) begin
         //impossible flag.
         fullOverFlow <= 1;
-        $display("There are more than 7 people in the queue.");
+        //$display("There are more than 7 people in the queue.");
     end
     /*legacy code, pre-lut.*/
 /*
@@ -79,7 +79,7 @@ always@(negedge inputA) begin
 end
 
 
-always@(negedge inputB) begin
+always@(negedge frontSensorReg) begin
 
     if(pCount) begin
         //decreminting the pCount when the front sensor is triggered.
@@ -87,7 +87,7 @@ always@(negedge inputB) begin
     end
     else if(pCount < 0) begin
         emptyOverFlow <= 1;
-        $display("Error, somehow there is a negative number of people in the queue, please restart.");
+        //$display("Error, somehow there is a negative number of people in the queue, please restart.");
     end
     /*legacy code, pre-lut.*/
 /*
@@ -106,7 +106,7 @@ always@(posedge reset) begin
     pCount <= 0;
     emptyFlag <= 1;
     //wTime <= 0;
-    $display("The reset button has been hit.");
+    //$display("The reset button has been hit.");
     
 end
 

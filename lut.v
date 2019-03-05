@@ -1,4 +1,4 @@
-`include "parameters.vh"
+`include "parameters.v"
 
 module lut(
     input[2:0] pCount,

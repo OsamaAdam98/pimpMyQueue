@@ -1,0 +1,37 @@
+{D:/CS Training/verilog/SBqM/lut.v} {1 {vlog -work work -stats=none {D:/CS Training/verilog/SBqM/lut.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module lut
+
+Top level modules:
+	lut
+
+} {} {}} {D:/CS Training/verilog/SBqM/SBqM.v} {1 {vlog -work work -stats=none {D:/CS Training/verilog/SBqM/SBqM.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module clock
+-- Compiling module lut
+-- Compiling module SBqM
+
+Top level modules:
+	SBqM
+
+} {} {}} {D:/CS Training/verilog/SBqM/testBench.v} {1 {vlog -work work -stats=none {D:/CS Training/verilog/SBqM/testBench.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module clock
+-- Compiling module lut
+-- Compiling module SBqM
+-- Compiling module testBench
+
+Top level modules:
+	testBench
+
+} {} {}} {D:/CS Training/verilog/SBqM/clock.v} {1 {vlog -work work -stats=none {D:/CS Training/verilog/SBqM/clock.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module clock
+
+Top level modules:
+	clock
+
+} {} {}} {D:/CS Training/verilog/SBqM/parameters.v} {1 {vlog -work work -stats=none {D:/CS Training/verilog/SBqM/parameters.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+
+} {} {}}
