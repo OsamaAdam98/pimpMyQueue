@@ -2,8 +2,8 @@
 `include "lut.v"
 
 module SBqM(
-    input reg backSensor, //back sensor.
-    input reg frontSensor, //front sensor.
+    input backSensor, //back sensor.
+    input frontSensor, //front sensor.
     input reset,
     input reg[1:0] tCount,
     output reg[2:0] pCount,
