@@ -34,7 +34,7 @@ The number of tellers at our bank, this is used in calculating the wTime (wait t
 
 ## wTime
 
-wTime is give by the formula:
+wTime is give by the formula
 
 #### *wTime = 3\*(pCount + tCount - 1) / tCount*
 
