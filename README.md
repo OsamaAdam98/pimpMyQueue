@@ -1,5 +1,3 @@
-# where does this show up?
-
 # pimpMyQueue
 
 pimpMyQueue is a machine designed to keep track of a virtual bank queue.
